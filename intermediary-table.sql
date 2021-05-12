@@ -5,7 +5,7 @@
 create table NORMALIZED_PARKING_DATA (
    -- Columns.
    garageId    int not null references GARAGES(ID)
-   datehour    datetime not null,
+   datehour    timestamp not null,
    available   int not null,
    capacity    int not null,
 
@@ -21,7 +21,7 @@ create table NORMALIZED_PARKING_DATA (
 create table EXTRAPOLATED_PARKING_DATA (
    -- Columns.
    garageId    int not null references GARAGES(ID)
-   datehour    datetime not null,
+   datehour    timestamp not null,
    available   int not null,
    capacity    int not null,
 
