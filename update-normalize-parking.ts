@@ -54,7 +54,6 @@ export async function createAllNorms(conn: mysql.Connection) {
    const garages = await norm.getGarages(conn);
 
    for (const datehour of dates.datehourRange(dates.roundDown(lower), dates.roundDown(upper))) {
-      //console.log('Now checking ' + datehour);
       for (const garage of garages) {
          try {
             if (!await norm.existsNorm(conn, garage.id, datehour))
