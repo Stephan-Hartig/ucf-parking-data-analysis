@@ -1,7 +1,7 @@
 import mysql = require('mysql');
 import dotenv = require('dotenv');
-//import norm = require('./normalize-parking');
 import norm = require('./update-normalize-parking');
+import cron = require('node-cron');
 
 dotenv.config();
 
@@ -19,6 +19,17 @@ conn.connect(async e => {
    
    console.log('Analysis server up and running.');
 
-   // Either externally schedule this program as an hourly job, or add some setInterval logic.
-   norm.createAllNorms(conn);
+   // Hourly service.
+   console.log('Hourly service set for **:01.');
+   let hourly = cron.schedule('1 * * * *', () => {
+      console.log('Hourly service starting:');
+      norm.createRecentNorms(conn);
+   });
+
+   // Weekly service.
+   console.log('Weekly service set for Sundays at 1 am.');
+   let weekly = cron.schedule('0 1 * * Sunday', () => {
+      console.log('Weekly service starting:');
+      norm.createAllNorms(conn);
+   });
 });
