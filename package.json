@@ -4,7 +4,10 @@
   "description": "Normalize and run analysis on the parking garage data.",
   "main": "index.js",
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "build": "tsc",
+    "run": "node index.js",
+    "run-update-all": "node index.js --do-all-on-startup"
   },
   "author": "Stephan Hartig",
   "license": "MIT",

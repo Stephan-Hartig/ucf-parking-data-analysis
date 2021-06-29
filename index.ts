@@ -19,6 +19,11 @@ conn.connect(async e => {
    
    console.log('Analysis server up and running.');
 
+   if (process.argv.slice(2).includes('--do-all-on-startup')) {
+      console.log('All-time service starting:');
+      norm.createAllNorms(conn);
+   }
+
    // Hourly service.
    console.log('Hourly service set for **:01.');
    let hourly = cron.schedule('1 * * * *', () => {
