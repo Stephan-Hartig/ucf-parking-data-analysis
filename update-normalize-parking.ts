@@ -36,6 +36,7 @@ export async function createRecentNorms(conn: mysql.Connection) {
          }
       }
    }
+   console.log('End of normalization.');
 }
 
 
@@ -68,4 +69,5 @@ export async function createAllNorms(conn: mysql.Connection) {
          }
       }
    }
+   console.log('End of normalization.');
 }

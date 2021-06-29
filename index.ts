@@ -32,8 +32,8 @@ conn.connect(async e => {
    });
 
    // Weekly service.
-   console.log('Weekly service set for Sundays at 1 am.');
-   let weekly = cron.schedule('0 1 * * Sunday', () => {
+   console.log('Weekly service set for Sundays at 1:30 am.');
+   let weekly = cron.schedule('30 1 * * Sunday', () => {
       console.log('Weekly service starting:');
       norm.createAllNorms(conn);
    });

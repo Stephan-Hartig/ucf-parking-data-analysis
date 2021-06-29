@@ -6,8 +6,8 @@
   "scripts": {
     "test": "standard",
     "build": "tsc",
-    "run": "node index.js",
-    "run-update-all": "node index.js --do-all-on-startup"
+    "app": "node index.js",
+    "app-update-all": "node index.js --do-all-on-startup"
   },
   "author": "Stephan Hartig",
   "license": "MIT",
@@ -22,6 +22,6 @@
     "@types/mysql": "^2.15.18",
     "@types/node": "^15.0.2",
     "@types/node-cron": "^2.0.3",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.4"
   }
 }
